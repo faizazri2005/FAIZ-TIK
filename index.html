@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dampak AI - Visualized</title>
+    <style>
+        /* --- CSS (TAMPILAN) --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Dynamic Colors */
+        header {
+            padding: 1.5rem 0;
+            text-align: center;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Kelas warna untuk header yang berubah-ubah */
+        .header-blue { background-color: #0056b3; }
+        .header-green { background-color: #28a745; }
+        .header-red { background-color: #dc3545; }
+
+        /* Navigasi */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: #bbb;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        nav button:hover {
+            color: white;
+            background-color: #555;
+            border-radius: 4px;
+        }
+
+        /* Tombol yang sedang aktif */
+        nav button.active {
+            color: white;
+            border-bottom: 3px solid white;
+        }
+
+        /* Container Konten */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            flex: 1; /* Agar footer selalu di bawah */
+        }
+
+        /* --- CSS BARU UNTUK GAMBAR (DIOPTIMALKAN UNTUK KEJELASAN) --- */
+        .section-image {
+            max-width: 100%; /* Memastikan gambar tidak melebihi lebar kontainer */
+            max-height: 300px; /* Batasi tinggi agar lebih ringkas dan jelas */
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            display: block; /* Menjadikan gambar blok */
+            margin-left: auto; /* Memposisikan gambar di tengah (center) */
+            margin-right: auto;
+        }
+        /* ------------------------------------- */
+
+        /* Halaman (Sections) */
+        .page-section {
+            display: none; /* Sembunyikan semua halaman secara default */
+            animation: fadeIn 0.5s;
+        }
+
+        .page-section.active {
+            display: block; /* Tampilkan hanya yang aktif */
+        }
+
+        /* Animasi muncul halus */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Kartu Info */
+        .card {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left-width: 5px;
+            border-left-style: solid;
+            border-radius: 6px;
+        }
+
+        /* Warna Border Kartu */
+        .border-blue { border-left-color: #0056b3; }
+        .border-green { border-left-color: #28a745; }
+        .border-red { border-left-color: #dc3545; }
+
+        h2 { margin-top: 0; }
+        
+        .btn-cta {
+            background-color: #0056b3;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .btn-cta:hover { background-color: #004494; }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: #ccc;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 600px) {
+            nav button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            .section-image {
+                max-height: 180px; /* Gambar lebih pendek lagi di HP */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header" class="header-blue">
+        <h1 id="header-title">Dampak AI dalam Kehidupan</h1>
+    </header>
+
+    <nav>
+        <button onclick="showPage('home')" id="btn-home" class="active">Beranda</button>
+        <button onclick="showPage('positif')" id="btn-positif">Dampak Positif</button>
+        <button onclick="showPage('tantangan')" id="btn-tantangan">Tantangan</button>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="page-section active">
+            <h2 style="color: #0056b3;">Selamat Datang di Era Digital</h2>
+            
+            <img src="page3.jfif.jfif" alt="Ilustrasi Kepala AI Digital" class="section-image">
+            
+            <p><strong>Kecerdasan Buatan (AI)</strong> bukan lagi sekadar fiksi ilmiah, melainkan realitas yang membentuk cara kita hidup, bekerja, dan berinteraksi saat ini.</p>
+            
+            <div class="card border-blue">
+                <h3>Apa itu AI? 🤖</h3>
+                <p>Simulasi kecerdasan manusia yang diproses oleh mesin. AI bisa belajar dari data (machine learning), mengenali pola, dan membuat keputusan.</p>
+            </div>
+
+            <p>Website ini akan mengajak Anda melihat dua sisi mata uang dari teknologi ini: manfaat luar biasa yang ditawarkannya, serta risiko yang perlu kita waspadai.</p>
+            
+            <br>
+            <button class="btn-cta" onclick="showPage('positif')">Mulai Eksplorasi Dampak Positif →</button>
+        </div>
+
+        <div id="positif" class="page-section">
+            <h2 style="color: #28a745;">Manfaat Bagi Kehidupan</h2>
+            
+            <img src="page1.jfif.jfif" alt="Ilustrasi Smart City dan Konektivitas AI" class="section-image">
+
+            <p>AI hadir untuk membuat hidup kita lebih mudah, efisien, dan bahkan lebih sehat melalui berbagai inovasi.</p>
+
+            <div class="card border-green">
+                <h3>🏥 Kesehatan Presisi</h3>
+                <p>Analisis medis berbasis AI membantu dokter mendeteksi penyakit seperti kanker pada stadium awal dengan akurasi yang jauh lebih tinggi.</p>
+            </div>
+
+            <div class="card border-green">
+                <h3>🏙️ Kota Pintar (Smart City)</h3>
+                <p>AI mengelola lalu lintas, menghemat energi di gedung-gedung, dan meningkatkan sistem keamanan publik secara otomatis.</p>
+            </div>
+
+            <div class="card border-green">
+                <h3>🚀 Efisiensi & Produktivitas</h3>
+                <p>Dari asisten virtual pribadi hingga otomatisasi pabrik, AI mengambil alih tugas berulang sehingga manusia bisa fokus pada hal kreatif.</p>
+            </div>
+        </div>
+
+        <div id="tantangan" class="page-section">
+            <h2 style="color: #dc3545;">Tantangan & Risiko Masa Depan</h2>
+            
+            <img src="page2.jfif.jfif" alt="Ilustrasi AI dalam Bisnis dan Industri" class="section-image">
+
+            <p>Di balik kemudahan yang ditawarkan, ada harga dan risiko serius yang harus kita perhatikan dan mitigasi.</p>
+
+            <div class="card border-red">
+                <h3>💼 Disrupsi Lapangan Kerja</h3>
+                <p>Otomatisasi mengancam pekerjaan administratif dan manual. Manusia dituntut untuk terus melakukan <em>upskilling</em> agar tetap relevan.</p>
+            </div>
+
+            <div class="card border-red">
+                <h3>⚖️ Bias Algoritma & Etika</h3>
+                <p>Jika data yang dipelajari AI bias, maka keputusannya pun akan tidak adil (misal dalam rekrutmen atau hukum). Siapa yang bertanggung jawab jika AI salah?</p>
+            </div>
+
+            <div class="card border-red">
+                <h3>🎭 Deepfake & Keamanan Informasi</h3>
+                <p>Kemampuan AI meniru wajah dan suara (deepfake) dapat digunakan untuk penipuan canggih dan penyebaran hoaks yang masif.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2024 Edukasi AI Visual. Dibuat dengan HTML, CSS, JS & Gambar.
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // 1. Sembunyikan semua halaman
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // 2. Tampilkan halaman yang dipilih
+            document.getElementById(pageId).classList.add('active');
+
+            // 3. Update status tombol navigasi (biar nyala/highlight)
+            const buttons = document.querySelectorAll('nav button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + pageId).classList.add('active');
+
+            // 4. Ubah warna header & judul sesuai halaman (Fitur Estetik Tambahan)
+            const header = document.getElementById('main-header');
+            const title = document.getElementById('header-title');
+
+            if (pageId === 'home') {
+                header.className = 'header-blue';
+                title.innerText = 'Dampak AI dalam Kehidupan';
+                window.scrollTo(0, 0); // Scroll ke atas saat pindah halaman
+            } else if (pageId === 'positif') {
+                header.className = 'header-green';
+                title.innerText = 'Sisi Positif & Inovasi AI';
+                window.scrollTo(0, 0);
+            } else if (pageId === 'tantangan') {
+                header.className = 'header-red';
+                title.innerText = 'Tantangan & Risiko AI';
+                window.scrollTo(0, 0);
+            }
+        }
+    </script>
+
+</body>
+</html>
